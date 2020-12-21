@@ -1,165 +1,115 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" >
-
+<html lang="zh-CN">
+<head>
+<!-- 必要参数 -->
+<meta charset="utf-8"/>
 <title>搭建博客的第一天 | Nicvank&#39;s Blogs</title>
-<meta name="description" content="杰少的个人博客">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-<link rel="shortcut icon" href="https://nicvank.github.io/favicon.ico">
-<link rel="stylesheet" href="https://nicvank.github.io/styles/main.css">
-
-
-  
-    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
-  
-
-  
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-
-  </head>
-  <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://nicvank.github.io">
-        <img src="https://nicvank.github.io/images/avatar.png" class="site-logo">
-        <h1 class="site-title">Nicvank&#39;s Blogs</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
-      
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
-      
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
-      
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
-      
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
-      
-    </div>
-  </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="site-description">
-      杰少的个人博客
-    </div>
-    <div class="site-footer">
-      Powered by <a href="https://github.com/Nicvank" target="_blank">Nicvank</a>
-    </div>
-  </div>
-</div>
-
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">搭建博客的第一天</h2>
-            <div class="post-date">2020-12-21</div>
-            
-              <div class="feature-container" style="background-image: url('https://nicvank.github.io/post-images/0000000001.jpg')">
-              </div>
-            
-            <div class="post-content">
-              <p>2020/12/21<br>
-使用Gridea搭建静态博客的第一天</p>
-
-            </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://nicvank.github.io/tag/daily/" class="tag">
-                    日常
-                  </a>
-                
-              </div>
-            
-            
-
-            
-              
-                <div id="gitalk-container" data-aos="fade-in"></div>
-              
-
-              
-            
-
-          </div>
-
+<meta name="keywords" content="关键词"/>
+<meta name="description" content="简述"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable:no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<link rel="shortcut icon" href="favicon.ico">
+<!-- CSS -->
+<link rel="stylesheet" href="https://nicvank.github.io/media/css/mdui.min.css">
+<link rel="stylesheet" href="https://nicvank.github.io/media/css/modify.css">
+<link rel="stylesheet" href="https://nicvank.github.io/media/css/github-gist.min.css">
+<link rel="stylesheet" href="https://nicvank.github.io/media/css/railscasts.min.css">
+</head>
+<body id="post" class="mdui-appbar-with-toolbar mdui-theme-primary-blue-grey mdui-theme-accent-blue mdui-theme-layout-dark">
+<header role="banner">
+    <div class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-shadow-0">
+        <div class="mdui-toolbar">
+            <button class="mdui-btn mdui-btn-icon" id="menu" mdui-drawer="{target:'#drawer',overlay:true,swipe:true}"><i class="mdui-icon material-icons">menu</i></button>
+            <a href="https://nicvank.github.io" class="mdui-typo-headline">Nicvank&#39;s Blogs</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '深色样式切换', position: 'left'}" id="DarkStyle"><i class="mdui-icon material-icons">brightness_4</i></button>
         </div>
-      </div>
     </div>
+</header>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<nav id="drawer" class="mdui-drawer mdui-drawer-full-height mdui-drawer-close">
+    <ul class="mdui-list">
+        <a href="/" class="menu"><li class="mdui-list-item mdui-ripple">首页</li></a>
+        <a href="/archives" class="menu"><li class="mdui-list-item mdui-ripple">归档</li></a>
+        <a href="/tags" class="menu"><li class="mdui-list-item mdui-ripple">标签</li></a>
+        <a href="/post/about" class="menu"><li class="mdui-list-item mdui-ripple">关于</li></a>
+        
+        <a href="https://github.com/CPlayer-CN/gridea-theme-cplayer-material" class="spread"><li class="mdui-list-item mdui-ripple">主题主页</li></a>
+    </ul>
+</nav>
 
-<script type="application/javascript">
 
-AOS.init();
+<main class="mdui-container mdui-typo mdui-m-t-2">
+    <section class="mdui-card">
+        
+        <div class="mdui-card-media">
+            <img src="https://nicvank.github.io/post-images/0000000001.jpg">
+        </div>
+        
+        <div class="mdui-card-primary">
+            <div class="mdui-card-primary-title">搭建博客的第一天</div>
+            <div class="mdui-card-primary-subtitle">发布于 2020-12-21，包含标签 <a href="https://nicvank.github.io/tag/daily/" class="post-tags"># 日常</a>。</div>
+        </div>
+        <div class="mdui-card-content"><p>使用Gridea搭建静态博客的第一天</p>
+</div>
+        <div class="mdui-card-header">
+            <img class="mdui-card-header-avatar" src="https://nicvank.github.io/images/avatar.png">
+            <div class="mdui-card-header-title">Nicvank&#39;s Blogs</div>
+            <div class="mdui-card-header-subtitle">杰少的个人博客</div>
+        </div>
+    </section>
 
-hljs.initHighlightingOnLoad()
+      
+            
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'f3e799867deed46d532e',
+    clientSecret: 'e620e5d1a36dc799e0adc4161a15a092be3d0dcf',
+    repo: 'nicvank.github.io',
+    owner: 'Nicvank',
+    admin: ['Nicvank'],
+    id: location.pathname,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
 
 </script>
 
+            
 
-  
-  
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <script>
+            
+      
+</main>
 
-      var gitalk = new Gitalk({
-        clientID: 'f3e799867deed46d532e',
-        clientSecret: 'e620e5d1a36dc799e0adc4161a15a092be3d0dcf',
-        repo: 'nicvank.github.io',
-        owner: 'Nicvank',
-        admin: ['Nicvank'],
-        id: location.pathname,      // Ensure uniqueness and length less than 50
-        distractionFreeMode: false  // Facebook-like distraction free mode
-      })
+<nav class="mdui-container mdui-m-t-2 mdui-m-b-2">
+    
+    
+</nav>
 
-      gitalk.render('gitalk-container')
+<div class="mdui-m-t-2 mdui-text-center mdui-typo">
+    Powered by <a href="https://github.com/Nicvank" target="_blank">Nicvank</a>
+</div>
 
-    </script>
-  
+<script src="https://nicvank.github.io/media/js/jquery.min.js"></script>
+<script src="https://nicvank.github.io/media/js/mdui.min.js"></script>
+<script src="https://nicvank.github.io/media/js/modify.js"></script>
+<script src="https://nicvank.github.io/media/js/highlight.min.js"></script>
+<script src="https://nicvank.github.io/media/js/lightense.min.js"></script>
+<script>
+// 初始化-高亮代码
+hljs.initHighlightingOnLoad();
+// 初始化-文章图片放大
+window.addEventListener('load', function () {
+    Lightense('#post .mdui-card-content img');
+}, false);
+</script>
 
-  
-
-
-
-
-  </body>
+</body>
 </html>
